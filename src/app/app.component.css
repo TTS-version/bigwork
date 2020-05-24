@@ -1,0 +1,105 @@
+html body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-page {
+
+    background: url('http://a0.att.hudong.com/08/30/300001378954132857309232007.jpg');
+    background-size: 100%;
+}
+
+form {
+    border: 1px solid red;
+    width: 36rem;
+    height: 25rem;
+    text-align: center;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    padding: 1rem;
+    background: white;
+    opacity: .8;
+}
+
+form input:focus {
+    outline: none;
+    border-bottom: 1px solid blue;
+
+}
+
+form:hover {
+    box-shadow: 0px 0px 3px lightgray;
+}
+
+form input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    height: 2rem;
+    width: 80%;
+    font-size: 1.1rem;
+    margin: 0.8rem 0 0.8rem -1.1rem;
+    opacity: .5;
+    padding: 0 0 0 1.5rem;
+}
+
+.inputimg {
+    height: 0.9rem;
+    margin: 0 0 0 1rem;
+
+}
+
+form p {
+    font-size: 0.8rem;
+    height: .9rem;
+    text-align: left;
+    margin: .5rem 0;
+}
+
+form button {
+    width: 70%;
+    height: 3rem;
+    background: green;
+    font-size: 1rem;
+    margin-top: 4rem;
+    border-radius: 30px;
+    color: white;
+
+}
+
+button:focus {
+    outline: none;
+    border: 2px solid lightgreen;
+}
+
+.logo {
+    height: 6rem;
+
+}
+
+.error {
+    color: red;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.ipt-error {
+    border-bottom: 1px solid red;
+}
+
+.hide {
+    display: none;
+}
+
+div{
+    border:1px solid red;
+  }

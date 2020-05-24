@@ -1,0 +1,16 @@
+.login-content{
+  height: 100vh;
+}
+form{
+  width: 30rem;
+  
+  
+}
+
+
+
+.background{
+   
+  background-size: 100% 100%;
+  background: url(../../assets/imgs/login-backg.jpg);
+}

@@ -1,0 +1,193 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- class="col-md-9 ml-sm-auto col-lg-10 px-4" -->
+    <main role="main" class="col-md-12  col-lg-12 ">
+
+      <!-- <div class="inputdiv">
+        <form [formGroup]="myForm" class="col-10 text-center m-auto">
+          <div class="form-group">
+            <div class="form-group">
+                <label for="userName">用户名</label>
+                <input type="text" class="form-control" id="userName" name="userName" [formControl]='userName'>
+              </div>
+            <label for="password">密码</label>
+            <input type="text" class="form-control" id="password" name="password" [formControl]='password'>
+          </div>
+        </form>
+      </div> -->
+
+      <div class="container row-12 " style="text-align:center">
+        <div class="btn-group center" role="group" aria-label="Basic example">
+          <div class="col">
+            <button type="button" class="btn btn-outline-primary" style="width: 7rem;"
+              (click)="openModal(templatesearch)">查询</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-outline-success" style="width: 7rem;"
+              (click)="openModal(templateadd)">添加</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-outline-secondary" style="width: 7rem;"
+              (click)="flashlist()">显示所有</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-outline-info" style="width: 7rem;" (click)="openModal(templatereadd)"
+              >修改</button>
+          </div>
+        </div>
+      </div>
+
+      <!--------------------------------------------- 模态框  -------------------------------------------------------->
+      <div>
+
+        <ng-template #templateadd>
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">增加</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <label for="userName">用户名</label>
+            <input type="text" class="form-control" id="userName" name="userName" [formControl]='userName'>
+          </div>
+          <div class="modal-body">
+            <label for="password">密码</label>
+            <input type="number" class="form-control" id="password" name="password" [formControl]='password'>
+          </div>
+          <div style="text-align: center;margin-bottom: 1rem">
+            <button type="button" class="btn btn-outline-primary" style="width: 7rem;" (click)="add()" (click)="modalRef.hide()"
+              >新增</button>
+          </div>
+        </ng-template>
+      </div>
+
+
+      <div>
+
+        <ng-template #templatesearch>
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">查询</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <label for="userName">用户名</label>
+            <input type="text" class="form-control" id="userName" name="userName" [formControl]='userName'>
+          </div>
+          <div style="text-align: center;margin-bottom: 1rem">
+            <button type="button" class="btn btn-outline-primary" style="width: 7rem;" (click)="search()"
+              (click)="modalRef.hide()">查询</button>
+          </div>
+        </ng-template>
+      </div>
+
+
+      <div>
+        <ng-template #templatereadd>
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">修改</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <label for="userName">用户名</label>
+            <input type="text" class="form-control" id="userName" name="userName" [formControl]='userName'>
+          </div>
+          <div class="modal-body">
+            <label for="password">密码</label>
+            <input type="number" class="form-control" id="password" name="password" [formControl]='password'>
+          </div>
+          <div style="text-align: center;margin-bottom: 1rem">
+            <button type="button" class="btn btn-outline-primary" style="width: 7rem;" (click)="update()"
+              (click)="modalRef.hide()" >修改</button>
+          </div>
+        </ng-template>
+      </div>
+
+
+      <div>
+        <ng-template #templatedelete>
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">是否确认删除?</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <label for="userName">用户名</label>
+            <input type="text" class="form-control" id="userName" name="userName" [formControl]='userName'>
+          </div>
+          <div class="modal-body">
+            <label for="password">密码</label>
+            <input type="number" class="form-control" id="password" name="password" [formControl]='password'>
+          </div>
+          <div>
+            <div class="container row-12 " style="text-align:center ;margin-bottom: 1rem;">
+              <div class="btn-group center" role="group" aria-label="Basic example">
+                <div class="col">
+                  <button type="button" class="btn btn-danger" style="width: 7rem;" (click)="delete()"
+                    (click)="modalRef.hide()" >删除</button>
+                </div>
+                <div class="col">
+                  <button type="button" class="btn btn-primary"  style="width: 7rem;" (click)="modalRef.hide()">取消</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+
+
+      <!--------------------------------------------- 模态框  -------------------------------------------------------->
+
+
+
+      <!-- Modal -->
+      <!-- <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+      <table class="table" style="margin-top: 2rem;">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">用户名</th>
+            <th scope="col">密码</th>
+            <th scope="col">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users$ | async;let i=index" (click)="select(user)">
+            <th scope="row">{{i}}</th>
+            <td>{{user.userName}}</td>
+            <td>{{user.password}}</td>
+            <td> <button type="button" class="btn btn-outline-warning" style="width: 7rem;"
+                (click)="openModal(templatedelete)">删除</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="table-responsive">
+      </div>
+    </main>
+  </div>
+</div>
