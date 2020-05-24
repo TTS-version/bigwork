@@ -67,8 +67,14 @@ export class StudentComponentComponent implements OnInit {
       alert('数据不能为空')
       return 0;
     }
+    else if(!this.password.value || !this.password.value || !this.userName.value){
+      alert('必须选择用户');
+    }
 
+    if(this.password.value<=100&&this.password.value>=0)
+    {
 
+    
 
     this.httpClient.post(this.baseUrl + 'user', this.myForm.value).subscribe(
       (val: any) => {
@@ -78,6 +84,11 @@ export class StudentComponentComponent implements OnInit {
         }
       }
     )
+  }
+  else{
+    alert('成绩范围有误');
+  
+  }
 
   }
 
@@ -125,8 +136,20 @@ export class StudentComponentComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
- flashlist(){
+ flashlist(): void{
   this.users$ = <Observable<User>>this.httpClient.get(this.baseUrl + 'users');
+  try
+     {
+         this.myForm.controls['id'].reset();
+         this.myForm.controls['userName'].reset();
+         this.myForm.controls['password'].reset();
+     } catch (error)
+     {
+       console.log(error);
+     }
  }
+
+ 
+
 
 }

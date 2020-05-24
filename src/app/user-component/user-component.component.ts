@@ -59,13 +59,30 @@ export class UserComponentComponent implements OnInit {
 
   add() {
     console.log(this.myForm.value);
-
-    if (!this.password.value || !this.password.value || !this.userName.value) {
+    console.log(this.password.value);
+    console.log(this.password.value.length);
+    this.userName = this.myForm.controls['userName'];
+    this.password = this.myForm.controls['password'];
+    if ( !this.password.value || !this.userName.value) {
       alert('数据不能为空')
       return 0;
     }
+     if(this.userName.value=='' ){
+      alert('用户名不能为空')
+      return 0;
+    } 
+    if(this.userName.value.length<2){
+      alert('用户名不能少于2位')
+      return 0;
+    } 
+   
+    if(this.password.value.length<6){
+      alert('密码不能少于6位')
+      return 0;
+    }
+    
 
-
+    
 
     this.httpClient.post(this.baseUrl + 'login', this.myForm.value).subscribe(
       (val: any) => {
@@ -76,7 +93,7 @@ export class UserComponentComponent implements OnInit {
         }
       }
     )
-
+    
   }
 
   delete() {
@@ -127,6 +144,14 @@ export class UserComponentComponent implements OnInit {
 
  flashlist(){
   this.users$ = <Observable<User>>this.httpClient.get(this.baseUrl + 'login');
+  try
+     {
+         this.myForm.controls['userName'].reset();
+         this.myForm.controls['password'].reset();
+     } catch (error)
+     {
+       console.log(error);
+     }
  }
 
 

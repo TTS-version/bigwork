@@ -7,10 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import {LoginUser} from './loginuser';
 import {Router} from'@angular/router';
 
-//////////////////////////////////////////////模态框组件
-import { TemplateRef } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+
 
 function userNameValidator(control:FormControl):{[s:string]:boolean}{
   if(!control.value.match(/^a/))
