@@ -120,7 +120,8 @@ export class StudentComponentComponent implements OnInit {
     if (!this.currentUser) {
       alert('必须先选择用户!');
     }
-    else {
+    if(this.password.value<=100&&this.password.value>=0)
+    {
       this.httpClient.put(this.baseUrl + 'user/',
         this.myForm.value).subscribe(
           (val: any) => {
@@ -130,7 +131,10 @@ export class StudentComponentComponent implements OnInit {
             }
           }
         )
-    }
+      }
+   else{
+    alert('成绩范围有误');
+   }
   }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);

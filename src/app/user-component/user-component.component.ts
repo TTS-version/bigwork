@@ -124,7 +124,15 @@ export class UserComponentComponent implements OnInit {
   }
 
   update() {
-    
+    if(this.userName.value.length<2){
+      alert('用户名不能少于2位')
+      return 0;
+    } 
+   
+    if(this.password.value.length<6){
+      alert('密码不能少于6位')
+      return 0;
+    }
     
       this.httpClient.put(this.baseUrl + 'login/',
         this.myForm.value).subscribe(
