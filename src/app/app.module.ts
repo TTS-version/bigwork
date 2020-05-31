@@ -8,7 +8,7 @@ import { HomeComponentComponent } from './home-component/home-component.componen
 import { LoginComponentComponent } from './login-component/login-component.component';
 import { ManagementComponentComponent } from './management-component/management-component.component';
 import { Routes, RouterModule} from '@angular/router';
-import{LoginGuard} from './login.guard';
+import {LoginGuard} from './login.guard';
 import { Authservice } from './auth.service';
 import { StudentComponentComponent } from './student-component/student-component.component';
 import { UserComponentComponent } from './user-component/user-component.component';
@@ -29,15 +29,12 @@ const routes: Routes = [
   { path: 'home', component: HomeComponentComponent },
   { path: '', redirectTo: 'home' , pathMatch: 'full'},
   { path: 'login', component: LoginComponentComponent },
-  { path: 'management', component: ManagementComponentComponent, children :mgtChildrenRoutes ,
- canActivate:[LoginGuard]
+  { path: 'management', component: ManagementComponentComponent, children : mgtChildrenRoutes ,
+ canActivate: [LoginGuard]
 
 }
   ];
 
-  
-
-  
 
 @NgModule({
   declarations: [
@@ -56,7 +53,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     ModalModule.forRoot()
   ],
-  providers: [LoginGuard,Authservice],
+  providers: [LoginGuard, Authservice],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -44,23 +44,20 @@ app.post('/loginconfirm',function(req,resp){   //登录验证
     // const userName =req.params.userName;
 
     for(let user of LoginId){
-        console.log(req.body.userName+req.body.password);
-        console.log(user.userName+user.password);
+        console.log(req.body.userName+',,,'+',,,'+req.body.password);
+        console.log(user.userName+',,,'+',,,'+user.password);
 
         if (user.userName===req.body.userName&&user.password===req.body.password) {
             chick=true;
             resp.send([chick]);
             console.log(chick);
-            resp.end();
             return;
-            
-        }
-        resp.send([chick]);
+        }             
+    }
+    resp.send({succ:false});
         console.log("账户名密码错误");
         resp.end();
-        break;
-        
-    }
+       
     resp.end();
 });
 // ==================================================登录用户管理部分
@@ -129,7 +126,7 @@ app.delete('/login/:userName',function(req,resp){  //删除成绩
     }
     if (founded) {
         resp.send({
-            succ: true
+            succ : true
         });
     } else {
         resp.send({
